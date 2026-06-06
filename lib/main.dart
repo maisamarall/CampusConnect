@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'config/routes.dart'; // Importa o arquivo de rotas que organizamos
 import 'utils/colors.dart';  // Importa suas cores padronizadas (AppColors)
 import 'package:flutter/material.dart'; // Importa o Flutter Material para usar os widgets básicos
