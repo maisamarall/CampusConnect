@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
       
       // Carrega o mapa de rotas (/welcome, /login, /cadastro)
       routes: AppRoutes.routes,
+
     );
   }
 }
