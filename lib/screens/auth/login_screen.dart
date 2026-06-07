@@ -5,7 +5,8 @@ import '../../widgets/custom_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-// import '../home/home_screen.dart';
+import '../caronas/criar_carona_screen.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -48,12 +49,12 @@ class _LoginScreenState extends State<LoginScreen> {
       if (userCredential.user != null) {
         if (!mounted) return;
 
-        // Navigator.pushReplacement(
-        //   context,
-        //   // MaterialPageRoute(
-        //   //   builder: (_) => const HomePage(),
-        //   // ),
-        // );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const CriarCaronaScreen(),
+          ),
+        );
       }
     } on FirebaseAuthException catch (e) {
       String mensagem = "Erro ao fazer login";
@@ -123,12 +124,12 @@ class _LoginScreenState extends State<LoginScreen> {
       if (userCredential.user != null) {
         if (!mounted) return;
 
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (_) => const HomePage(),
-        //   ),
-        // );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const CriarCaronaScreen(),
+          ),
+        );
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
