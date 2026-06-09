@@ -58,7 +58,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
         ),
       );
 
-      // Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, AppRoutes.home);
 
     } on FirebaseAuthException catch (e) {
 
