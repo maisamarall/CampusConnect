@@ -9,8 +9,10 @@ class AvaliacaoService {
     required String avaliadorId,
     required int nota,
     required String comentario,
+    String caronaId = '',
   }) async {
     await _db.push().set({
+      "caronaId": caronaId,
       "motoristaId": motoristaId,
       "avaliadorId": avaliadorId,
       "nota": nota,
