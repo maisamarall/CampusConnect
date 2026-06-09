@@ -8,7 +8,7 @@ import 'package:supabase_flutter/supabase_flutter.dart'; // Importa o Supabase F
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 🔐 Firebase
+  // Firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 
