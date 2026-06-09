@@ -5,7 +5,7 @@ import '../../widgets/custom_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../caronas/criar_carona_screen.dart';
+import '../home/home_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => const CriarCaronaScreen(),
+            builder: (_) => const HomeScreen(),
           ),
         );
       }
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => const CriarCaronaScreen(),
+            builder: (_) => const HomeScreen(),
           ),
         );
       }
