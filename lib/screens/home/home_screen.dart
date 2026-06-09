@@ -8,6 +8,8 @@ import '../avaliacao/avaliacao_screen.dart';
 import '../caronas/buscar_carona_screen.dart';
 import '../caronas/criar_carona_screen.dart';
 import '../chat/chat_screen.dart';
+import '../../widgets/dashboard_indicadores.dart';
+import '../../widgets/carona_recomendada_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,24 +27,28 @@ class _HomeScreenState extends State<HomeScreen> {
     final paginas = [
       _InicioTab(
         service: _caronaService,
-        abrirCriar: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const CriarCaronaScreen()),
-        ),
-        abrirBuscar: () => setState(() => _indiceAtual = 1),
-        abrirChat: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => const ChatScreen()),
-        ),
-        abrirAvaliacao: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => const AvaliacaoScreen(
-              motoristaId: '',
-              motoristaNome: 'Motorista',
+        abrirCriar:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const CriarCaronaScreen()),
             ),
-          ),
-        ),
+        abrirBuscar: () => setState(() => _indiceAtual = 1),
+        abrirChat:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const ChatScreen()),
+            ),
+        abrirAvaliacao:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (_) => const AvaliacaoScreen(
+                      motoristaId: '',
+                      motoristaNome: 'Motorista',
+                    ),
+              ),
+            ),
       ),
       const BuscarCaronaScreen(),
       _PerfilTab(service: _caronaService),
@@ -119,6 +125,10 @@ class _InicioTab extends StatelessWidget {
           const SizedBox(height: 22),
           EcoPointsCard(service: service),
           const SizedBox(height: 22),
+          const DashboardIndicadores(),
+          const SizedBox(height: 22),
+
+          const SizedBox(height: 22),
           GridView.count(
             crossAxisCount: 2,
             childAspectRatio: 1.12,
@@ -152,6 +162,35 @@ class _InicioTab extends StatelessWidget {
                 onTap: abrirAvaliacao,
               ),
             ],
+          ),
+          const SizedBox(height: 22),
+
+          Row(
+            children: [
+              const Text(
+                "Caronas recomendadas",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  color: AppColors.primary,
+                ),
+              ),
+              const Spacer(),
+              TextButton(
+                onPressed: abrirBuscar,
+                child: const Text("Ver todas"),
+              ),
+            ],
+          ),
+
+          const CaronaRecomendadaCard(
+            nome: "",
+            curso: "Engenharia Civil",
+            origem: "Vila Madalena",
+            destino: "Campus Butantã",
+            horario: "07:20",
+            vagas: "2",
+            valor: "8.00",
           ),
         ],
       ),
@@ -191,10 +230,7 @@ class _AtalhoCard extends StatelessWidget {
                 child: Icon(icon, color: AppColors.secondary),
               ),
               const Spacer(),
-              Text(
-                titulo,
-                style: const TextStyle(fontWeight: FontWeight.w800),
-              ),
+              Text(titulo, style: const TextStyle(fontWeight: FontWeight.w800)),
               const SizedBox(height: 4),
               Text(
                 descricao,
@@ -232,13 +268,17 @@ class _PerfilTab extends StatelessWidget {
         Card(
           elevation: 0,
           color: AppColors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+          ),
           child: ListTile(
             contentPadding: const EdgeInsets.all(16),
             leading: const CircleAvatar(child: Icon(Icons.person)),
-            title: Text(user?.displayName?.isNotEmpty == true
-                ? user!.displayName!
-                : "Universitario"),
+            title: Text(
+              user?.displayName?.isNotEmpty == true
+                  ? user!.displayName!
+                  : "Universitario",
+            ),
             subtitle: Text(user?.email ?? "Usuario logado"),
           ),
         ),
