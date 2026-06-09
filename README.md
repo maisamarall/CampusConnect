@@ -100,25 +100,25 @@ lib/
 
 ## 👥 Equipe
 
-### Integrante 1
+### Maisa Amaral
 
 * Login
 * Cadastro
 * Firebase Authentication
 
-### Integrante 2
+### Simone Siqueira
 
 * Cadastro de Caronas
 
-### Integrante 3
+### Smara Adorno
 
 * Busca e Detalhes das Caronas
 
-### Integrante 4
+### Rayssa Marconato
 
 * Chat
 
-### Integrante 5
+### Jênie Danielle
 
 * Avaliações
 * Design
