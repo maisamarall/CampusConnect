@@ -142,7 +142,7 @@ class _InicioTab extends StatelessWidget {
               _AtalhoCard(
                 icon: Icons.chat_bubble_outline,
                 titulo: "Solicitacoes",
-                descricao: "Acompanhe pelo chat",
+                descricao: "Veja o chat",
                 onTap: abrirChat,
               ),
               _AtalhoCard(

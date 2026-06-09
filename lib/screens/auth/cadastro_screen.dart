@@ -52,6 +52,8 @@ class _CadastroScreenState extends State<CadastroScreen> {
 
       if (!mounted) return;
 
+      if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Conta criada com sucesso!"),
@@ -72,6 +74,8 @@ class _CadastroScreenState extends State<CadastroScreen> {
         erro = "Email inválido";
       }
 
+      if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(erro),
@@ -88,9 +92,11 @@ class _CadastroScreenState extends State<CadastroScreen> {
 
     }
 
-    setState(() {
-      carregando = false;
-    });
+    if (mounted) {
+      setState(() {
+        carregando = false;
+      });
+    }
 
   }
 

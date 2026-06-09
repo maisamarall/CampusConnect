@@ -17,7 +17,7 @@ class RatingStars extends StatelessWidget {
       children: List.generate(
         5,
         (index) => IconButton(
-          iconSize: 42,
+          iconSize: 30,
           onPressed: () => onChanged(index + 1),
           icon: Icon(
             index < value ? Icons.star : Icons.star_border,

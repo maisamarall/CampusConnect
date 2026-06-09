@@ -35,7 +35,7 @@ class _BuscarCaronaScreenState extends State<BuscarCaronaScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 12),
             child: TextField(
               onChanged: (value) => setState(() => _filtro = value.trim()),
               decoration: InputDecoration(
@@ -70,9 +70,9 @@ class _BuscarCaronaScreenState extends State<BuscarCaronaScreen> {
                 }
 
                 return ListView.separated(
-                  padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+                  padding: const EdgeInsets.fromLTRB(10, 4, 10, 10),
                   itemCount: caronas.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  separatorBuilder: (_, __) => const SizedBox(height: 5),
                   itemBuilder: (context, index) {
                     final carona = caronas[index];
                     return CardCarona(
@@ -116,11 +116,11 @@ class _EstadoVazio extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 6),
-            Text(
-              "Quando alguem publicar uma rota com vagas, ela aparece aqui.",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey.shade600),
-            ),
+            // Text(
+            //   "Quando alguem publicar uma rota com vagas, ela aparece aqui.",
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(color: Colors.grey.shade600),
+            // ),
           ],
         ),
       ),

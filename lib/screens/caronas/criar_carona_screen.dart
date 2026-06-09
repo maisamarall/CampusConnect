@@ -309,7 +309,7 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
             const SizedBox(height: 20),
 
             Container(
-              padding: const EdgeInsets.all(18),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(24),
@@ -329,9 +329,9 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      SizedBox(height: 1),
                       Text(
-                        "Quantos passageiros cabem?",
+                        "Quantos passageiros?",
                         style: TextStyle(
                           color: Colors.grey,
                         ),

@@ -149,27 +149,27 @@ class _AvaliacaoScreenState extends State<AvaliacaoScreen> {
           const SizedBox(height: 12),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.star,
-                size: 18,
-                color: Colors.amber,
-              ),
-              SizedBox(width: 4),
-              Text(
-                "4.9",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(width: 4),
-              Text("(128 avaliações)"),
-            ],
+            // children: [
+            //   Icon(
+            //     Icons.star,
+            //     size: 18,
+            //     color: Colors.amber,
+            //   ),
+            //   SizedBox(width: 4),
+            //   // Text(
+            //   //   "4.9",
+            //   //   style: TextStyle(
+            //   //     fontWeight: FontWeight.bold,
+            //   //   ),
+            //   // ),
+            //   // SizedBox(width: 4),
+            //   // Text("(128 avaliações)"),
+            // ],
           ),
           const SizedBox(height: 12),
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 14,
+              horizontal: 10,
               vertical: 8,
             ),
             decoration: BoxDecoration(
