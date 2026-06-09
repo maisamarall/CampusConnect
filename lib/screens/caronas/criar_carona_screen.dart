@@ -14,6 +14,7 @@ class CriarCaronaScreen extends StatefulWidget {
 class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
   final _origemController = TextEditingController();
   final _destinoController = TextEditingController();
+  final _observacoesController = TextEditingController();
 
   final CaronaService _caronaService = CaronaService();
 
@@ -83,6 +84,7 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
         data: _dataSelecionada!.toIso8601String(),
         horario: _horarioSelecionado!.format(context),
         vagas: vagas,
+        observacoes: _observacoesController.text.trim(),
       );
 
       if (!mounted) return;
@@ -168,6 +170,7 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
   void dispose() {
     _origemController.dispose();
     _destinoController.dispose();
+    _observacoesController.dispose();
     super.dispose();
   }
 
@@ -297,6 +300,14 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
 
             const SizedBox(height: 20),
 
+            campo(
+              icon: Icons.notes_outlined,
+              hint: "Observacoes opcionais",
+              controller: _observacoesController,
+            ),
+
+            const SizedBox(height: 20),
+
             Container(
               padding: const EdgeInsets.all(18),
               decoration: BoxDecoration(
@@ -420,6 +431,14 @@ class _CriarCaronaScreenState extends State<CriarCaronaScreen> {
                     "👥",
                     "Vagas",
                     "$vagas vaga${vagas > 1 ? 's' : ''}",
+                  ),
+
+                  _itemResumo(
+                    "Obs.",
+                    "Observacoes",
+                    _observacoesController.text.isEmpty
+                        ? "--"
+                        : _observacoesController.text,
                   ),
                 ],
               ),
