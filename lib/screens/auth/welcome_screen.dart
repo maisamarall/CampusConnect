@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../config/routes.dart';
 import '../../utils/colors.dart';
-import '../../widgets/custom_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
