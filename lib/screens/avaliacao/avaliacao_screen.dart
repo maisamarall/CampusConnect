@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../services/avaliacao_service.dart';
 import '../../utils/colors.dart';
+import '../../widgets/rating_stars.dart';
 
 class AvaliacaoScreen extends StatefulWidget {
+  final String caronaId;
   final String motoristaId;
   final String motoristaNome;
 
   const AvaliacaoScreen({
     super.key,
+    this.caronaId = '',
     required this.motoristaId,
     required this.motoristaNome,
   });
@@ -37,9 +41,10 @@ class _AvaliacaoScreenState extends State<AvaliacaoScreen> {
 
     await avaliacaoService.salvarAvaliacao(
       motoristaId: widget.motoristaId,
-      avaliadorId: "usuarioLogado",
+      avaliadorId: FirebaseAuth.instance.currentUser?.uid ?? "usuarioLogado",
       nota: nota,
       comentario: comentarioController.text,
+      caronaId: widget.caronaId,
     );
 
     if (!mounted) return;
@@ -73,23 +78,13 @@ class _AvaliacaoScreenState extends State<AvaliacaoScreen> {
   }
 
   Widget construirEstrelas() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        5,
-        (index) => IconButton(
-          iconSize: 42,
-          onPressed: () {
-            setState(() {
-              nota = index + 1;
-            });
-          },
-          icon: Icon(
-            index < nota ? Icons.star : Icons.star_border,
-            color: Colors.amber,
-          ),
-        ),
-      ),
+    return RatingStars(
+      value: nota,
+      onChanged: (valor) {
+        setState(() {
+          nota = valor;
+        });
+      },
     );
   }
 
@@ -262,6 +257,12 @@ class _AvaliacaoScreenState extends State<AvaliacaoScreen> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    comentarioController.dispose();
+    super.dispose();
   }
 
   @override
